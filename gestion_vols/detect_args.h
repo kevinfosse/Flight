@@ -1,0 +1,1 @@
+void detect_args(int Nom, int Compagnie, int Duree);
