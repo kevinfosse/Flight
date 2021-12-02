@@ -5,6 +5,7 @@
 #include "detect_args.h"
 #include <string.h>
 #include "ecran.h"
+#include "pass_data.h"
 
 
 void detect_args(int cNom, int cCompagnie, int cDuree) {
@@ -71,6 +72,8 @@ void detect_args(int cNom, int cCompagnie, int cDuree) {
     system("clear");   
     f("Ajout de l'entrée utilisateur");
     printf("\n%s / %s / %d \n\n", Nom, Compagnie, cDuree);
+    transfer(Nom, Compagnie, cDuree);
+
 
 
     }
