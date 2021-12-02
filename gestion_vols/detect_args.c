@@ -2,10 +2,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "detect_args.h"
 #include <string.h>
-#include "ecran.h"
-#include "pass_data.h"
+#include "header.h"
+
 
 
 void detect_args(int cNom, int cCompagnie, int cDuree) {

@@ -5,9 +5,8 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 
-#include "ecran.h" 
-#include "detect_args.h"
-#include "pass_data.h"
+#include "header.h" 
+
 
 
 void transfer(char *Nom, char *Compagnie, int Duree) {

@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include "ecran.h" 
-#include "detect_args.h"
+#include "header.h" 
+
 
 
 int main(int argc, char *argv[]) {
