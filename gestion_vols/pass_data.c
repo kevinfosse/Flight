@@ -9,11 +9,12 @@
 
 
 
-void transfer(char *Nom, char *Compagnie, int Duree) {
+void transfer(char *Nom, char *Compagnie) {
 
     key_t key;
     int shmid;
     char *p_shm;
+
 
     key = ftok("../key.bin", 1);
 
@@ -21,7 +22,13 @@ void transfer(char *Nom, char *Compagnie, int Duree) {
     // Nom
     shmid = shmget(key,50,IPC_CREAT | 0640);
     p_shm = (char *)shmat(shmid, 0, 0);
-	sprintf(p_shm, Nom);
+    sprintf(p_shm, "0");
+
+	sprintf(p_shm+5, Nom);
+    p_shm = p_shm+25;
+    sprintf(p_shm, Compagnie);
+
+
 	shmdt(p_shm);
 
 }

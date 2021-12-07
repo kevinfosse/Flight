@@ -9,7 +9,7 @@
 int main(int argc, char *argv[]) {
 int opt; 
 char *ptr;
-int Nom, Compagnie, Duree; // on déclare les variables en int
+int Nom, Compagnie; // on déclare les variables en int
 
 	if (argc > 1)
 	{
@@ -19,7 +19,7 @@ int Nom, Compagnie, Duree; // on déclare les variables en int
 				
 					
 						 printf("Exemple d'utilisation \n");
-						 printf("%s [Nom] [Compagnie] [Duree] \n", argv[0]);
+						 printf("%s [Nom] [Compagnie] \n", argv[0]);
 						 printf("Veuillez utiliser les chiffres\n\n");
 					
 				}
@@ -28,10 +28,9 @@ int Nom, Compagnie, Duree; // on déclare les variables en int
 		// je change le type de char vers int grace à strtol 
 		// je recois une erreur si je cast le type en haut 
 
-		if(argv[1] != NULL && argv[2] != NULL && argv[3] != NULL) {
+		if(argv[1] != NULL && argv[2] != NULL) {
 			 Nom = strtol(argv[1], &ptr, 10);
 		 	 Compagnie = strtol(argv[2], &ptr, 10);
-		 	 Duree = atoi(argv[3]);
 		}
 
 		
@@ -41,7 +40,7 @@ int Nom, Compagnie, Duree; // on déclare les variables en int
 					//printf("Compagnie : %d", Compagnie);
 					//printf("Duree : %d", Duree);	
 
-					detect_args(Nom,Compagnie,Duree);
+					detect_args(Nom,Compagnie);
 
 						return 0; 
 						 

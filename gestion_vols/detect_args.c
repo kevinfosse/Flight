@@ -7,9 +7,9 @@
 
 
 
-void detect_args(int cNom, int cCompagnie, int cDuree) {
+void detect_args(int cNom, int cCompagnie) {
 
-    if(cNom == 0 | cCompagnie == 0 | cDuree == 0) // Sécurités
+    if(cNom == 0 | cCompagnie == 0) // Sécurités
     {   
         system("clear");
         printf("\n\n");
@@ -70,8 +70,8 @@ void detect_args(int cNom, int cCompagnie, int cDuree) {
     }
     system("clear");   
     f("Ajout de l'entrée utilisateur");
-    printf("\n%s / %s / %d \n\n", Nom, Compagnie, cDuree);
-    transfer(Nom, Compagnie, cDuree);
+    printf("\n%s / %s  \n\n", Nom, Compagnie);
+    transfer(Nom, Compagnie);
 
 
 

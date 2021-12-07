@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "pass_data.h": "c"
-    }
+        "pass_data.h": "c",
+        "ipc.h": "c",
+        "shm.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
