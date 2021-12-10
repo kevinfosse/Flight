@@ -5,15 +5,19 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include "../gestion_vols/header.h"
+#include <string.h>
+
+#define MAX_CHARAC 25
 
 int main() {
 
 
-    char *Nom[10];
-    char *Compagnie[10];
-	char *Duree[10];
+    char Nom[5][25];
+    char Compagnie[5][25];
+	char transfer[30];
+	
 
-	int i;
+	int i, k, j, l;
 
 	
 
@@ -38,17 +42,19 @@ int main() {
   while(1) { 
 	//sleep(1);
 	
-		int bool = atoi(p_shm);
+	//	int bool = atoi(p_shm);
+		int verif = atoi(p_shm+2);
+	//	if (bool == 0) {
 
-		if (bool == 0) {
+	//		Nom[0] = p_shm+5;
+	//		Compagnie[0] = p_shm+25;
 
-			Nom[0] = p_shm+5;
-			Compagnie[0] = p_shm+25;
-
-			sprintf(p_shm, "1");
-		}
+	//		sprintf(p_shm, "1");
+	//	}
 
 
+
+	if(verif != 0) { // permet de vérifier si une saisie à été entrer
 	i = i + 1;
 	if(i > 5) { 
 	
@@ -57,7 +63,53 @@ int main() {
 		system("clear");
 }
 
-	printf("%d. %s %s \n", i, Nom[0],Compagnie[0]);
+		// Insertion des noms dans tableau 2D
+
+		// Nom[k][j]
+		
+
+	strcpy(transfer, p_shm+5); // transfer = nom
+
+
+	if(k < 5) { // le parent // pour le nom
+		for(j = 0; j < MAX_CHARAC; j++) { // le contenu
+			if(transfer[j] != '\0' | transfer[j] != '@' ) {
+				Nom[k][j] = transfer[j];
+			}
+			else {
+				break;
+			}
+		}
+	}
+	
+		strcpy(transfer, p_shm+25); // tranfert = compagnies
+
+
+	if(l < 5) { // le parent // pour la compagnie
+		for(j = 0; j < MAX_CHARAC; j++) { // le contenu
+			if(transfer[j] != '\0') {
+				Compagnie[l][j] = transfer[j];
+			}
+			else {
+				break;
+			}
+		}
+	}
+	
+
+
+	printf("%d. %s %s \n", i, Nom[k],Compagnie[l]);
+
+//	printf("\n %d. %s %s \n", i, p_shm+5, p_shm+25);
+//	printf("\x1b[1F"); // Move to beginning of previous line
+//	printf("\x1b[2K"); // Clear entire line
+					k++;
+					l++;
+
+	sprintf(p_shm+2, "0");
+
+
+	}
 
 
 

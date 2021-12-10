@@ -1,0 +1,6 @@
+p_shm+0 = bool = 1 ou 0
+p_shm+2 = verif;
+
+p_shm+5 = Nom de l'avion
+p_shm+25 = Compagnie de l'avion
+

@@ -3,7 +3,9 @@
         "stdlib.h": "c",
         "pass_data.h": "c",
         "ipc.h": "c",
-        "shm.h": "c"
+        "shm.h": "c",
+        "types.h": "c",
+        "stdio.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
