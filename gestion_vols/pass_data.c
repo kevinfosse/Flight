@@ -26,8 +26,8 @@ void transfer(char *Nom, char *Compagnie) {
 
     sprintf(p_shm+2,"1");
 
-	sprintf(p_shm+5, Nom);
-    p_shm = p_shm+25;
+	sprintf(p_shm+15, Nom);
+    p_shm = p_shm+40;
     sprintf(p_shm, Compagnie);
     
 

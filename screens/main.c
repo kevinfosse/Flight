@@ -12,9 +12,10 @@
 int main() {
 
 
-    char Nom[5][25];
-    char Compagnie[5][25];
+    char Nom[6][25];
+    char Compagnie[6][25];
 	char transfer[30];
+	char clean[6][25];
 	
 
 	int i, k, j, l;
@@ -39,6 +40,8 @@ int main() {
   	
 	  system("clear");
 
+	  
+
   while(1) { 
 	//sleep(1);
 	
@@ -52,6 +55,8 @@ int main() {
 	//		sprintf(p_shm, "1");
 	//	}
 
+	
+
 
 
 	if(verif != 0) { // permet de vérifier si une saisie à été entrer
@@ -63,13 +68,25 @@ int main() {
 		system("clear");
 }
 
+		if(k > 4) {
+			k = 0;
+			memset(Nom, 0, sizeof Nom);
+		}
+
+		if(l > 4) {
+			l = 0;
+			memset(Compagnie, 0, sizeof Compagnie);
+
+
+		}
+
 		// Insertion des noms dans tableau 2D
 
 		// Nom[k][j]
 		
 
-	strcpy(transfer, p_shm+5); // transfer = nom
-
+	sprintf(transfer, p_shm+15); // transfer = nom
+	
 
 	if(k < 5) { // le parent // pour le nom
 		for(j = 0; j < MAX_CHARAC; j++) { // le contenu
@@ -77,34 +94,37 @@ int main() {
 				Nom[k][j] = transfer[j];
 			}
 			else {
+
 				break;
+
 			}
 		}
 	}
 	
-		strcpy(transfer, p_shm+25); // tranfert = compagnies
+		strcpy(transfer, p_shm+40); // tranfert = compagnies
 
 
 	if(l < 5) { // le parent // pour la compagnie
 		for(j = 0; j < MAX_CHARAC; j++) { // le contenu
-			if(transfer[j] != '\0') {
+			if(transfer[j] != '\0' | transfer[j] != '@' ) {
 				Compagnie[l][j] = transfer[j];
 			}
 			else {
+
 				break;
 			}
 		}
 	}
 	
+						
 
-
-	printf("%d. %s %s \n", i, Nom[k],Compagnie[l]);
 
 //	printf("\n %d. %s %s \n", i, p_shm+5, p_shm+25);
 //	printf("\x1b[1F"); // Move to beginning of previous line
 //	printf("\x1b[2K"); // Clear entire line
-					k++;
-					l++;
+
+				k++;
+				l++;
 
 	sprintf(p_shm+2, "0");
 
