@@ -40,10 +40,10 @@ int main() {
   	
 	  system("clear");
 
-	  
-
-  while(1) { 
-	//sleep(1);
+do
+{
+		
+//sleep(1);
 	
 	//	int bool = atoi(p_shm);
 		int verif = atoi(p_shm+2);
@@ -55,18 +55,19 @@ int main() {
 	//		sprintf(p_shm, "1");
 	//	}
 
-	
 
+
+		
 
 
 	if(verif != 0) { // permet de vérifier si une saisie à été entrer
-	i = i + 1;
-	if(i > 5) { 
+	// i = i + 1;
+	// if(i > 5) { 
 	
-		i = 1;
-		sleep(2);
-		system("clear");
-}
+	//	i = 1;
+	//	sleep(2);
+	//	system("clear");
+// }
 
 		if(k > 4) {
 			k = 0;
@@ -115,8 +116,9 @@ int main() {
 			}
 		}
 	}
-	
-						
+
+
+
 
 
 //	printf("\n %d. %s %s \n", i, p_shm+5, p_shm+25);
@@ -129,18 +131,25 @@ int main() {
 	sprintf(p_shm+2, "0");
 
 
+}
+
+
+printf("Prochain décollage :");
+if(Nom[0] && Compagnie[0] != ' ') {
+printf("%s %s \n", Nom[0], Compagnie[0]);
+
+}
+for(i = 0; i < 5; i++) {
+		if(Nom[i][0] && Compagnie[i][0] != '\0') {
+	printf("%d. %s %s \n", i+1, Nom[i], Compagnie[i]);
+		}
+		else { break;}
 	}
+printf("test\n");
+		sleep(1);
+		system("clear");
 
-
-
-			}
-
-
-	
-
-  
-
-
+ }while(1);
 
 
 }
