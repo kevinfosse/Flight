@@ -182,23 +182,26 @@ else {
 	}
 
 	else if(coutdown == 0 && intervol == 0) {
-		coutdown = 10;
-		intervol = 3;
-		int change;
+
+		int change, x; 
 
 
 		for(change = 5; change > 0; change--) { // le parent // pour la compagnie
-		for(j = 0; j < MAX_CHARAC; j++) { // le contenu
-			if(Nom[change] != '\0' | Nom[change] != '@' ) {
+		for(x = 0; x < MAX_CHARAC; x++) { // le contenu
+			if(Nom[change][x] != '\0') {
 
-				Nom[change-1][j] = Nom[change][j];
+				Nom[change-1][x] = Nom[change][x];
+				Compagnie[change-1][x] = Compagnie[change][x];
+				memset(Compagnie[change], '\0', sizeof(Compagnie[change]));
+				memset(Nom[change], '\0', sizeof(Nom[change]));
+
+
+
 
 			}
 			else {
-				change--;
 				break;
 			}
-		}
 	}
 
 
