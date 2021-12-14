@@ -23,6 +23,7 @@ int Nom, Compagnie; // on déclare les variables en int
 						 printf("Veuillez utiliser les chiffres\n\n");
 					
 				}
+		
 					else { 				//Sinon il execute le programme
 
 		// je change le type de char vers int grace à strtol 
