@@ -19,6 +19,8 @@ int main() {
 	int Colonneint;
 	int coutdown = 10;
 	int intervol = 3;
+	int line = 0;
+
 	
 	
 
@@ -104,13 +106,14 @@ do
 			if(transfer[j] != '\0' | transfer[j] != '@' ) {
 				Nom[Colonneint][j] = transfer[j];
 			}
+				}
+	}
 			else {
 
 				break;
 
 			}
-		}
-	}
+	
 	
 		strcpy(transfer, p_shm+40); // tranfert = compagnies
 
@@ -156,8 +159,8 @@ do
 
 
 
-if(Nom[0][0] && Compagnie[0][0] != '@') {
-
+if(Nom[0][0] && Compagnie[0][0] != '@') { // je dois rajouter /0
+if(Nom[0][0] && Compagnie[0][0] != '\0') { 
 printf("Décollage en cours oui | Prochain décollage : ");
 printf("%s %s \n", Nom[0], Compagnie[0]);
 
@@ -169,13 +172,16 @@ else if(coutdown == 0) {
 	memset(Nom[0], '\0', sizeof(Nom[0]));
 }
 printf("Durée de décollage restant : %d \n", coutdown);
+printf("Durée intervolle : %d\n", intervol);
 
 
+
+	}
 }
 else {
 	printf("Décollage en cours non | Prochain décollage :\n");
 	printf("Durée de décollage restant : \n");
-	printf("Durée intervolle %d", intervol);
+	printf("Durée intervolle : %d \n", intervol);
 
 	if(coutdown == 0 && intervol > 0) {
 		intervol--;
@@ -183,30 +189,52 @@ else {
 
 	else if(coutdown == 0 && intervol == 0) {
 
-		int change, x; 
+		char transf_sheet[6][25];
+		int charac;
+		/*
 
-
-		for(change = 5; change > 0; change--) { // le parent // pour la compagnie
-		for(x = 0; x < MAX_CHARAC; x++) { // le contenu
-			if(Nom[change][x] != '\0') {
-
-				Nom[change-1][x] = Nom[change][x];
-				Compagnie[change-1][x] = Compagnie[change][x];
-				memset(Compagnie[change], '\0', sizeof(Compagnie[change]));
-				memset(Nom[change], '\0', sizeof(Nom[change]));
-
-
-
-
+if(line < 5) { // le parent // pour le nom
+		for(j = 0; j < MAX_CHARAC; j++) { // le contenu
+			if(Nom[line][0] != '\0' | Nom[line][0] != '@' ) {
+				transf_sheet[line][j] = Nom[line][j];
 			}
-			else {
-				break;
+		}
+}
+*/
+
+		
+			if(Nom[line][0] != '\0' | Nom[line][0] != '@' ) {
+				for(line = 0; line < 5; line++) {
+					for(charac = 0; charac < MAX_CHARAC; charac++) {
+
+							Nom[line][charac] = Nom[line+1][charac];
+					}
+				}
 			}
+
+
+			if(Compagnie[line][0] != '\0' | Compagnie[line][0] != '@' ) {
+				for(line = 0; line < 5; line++) {
+					for(charac = 0; charac < MAX_CHARAC; charac++) {
+
+							Compagnie[line][charac] = Compagnie[line+1][charac];
+					}
+				}
+			}
+
+
+
+
+		coutdown = 10;
+		intervol = 3;
+
+		if(nbAvionDecollage > 0) {
+		nbAvionDecollage--;
+
+		}
+	
+		
 	}
-
-
-	}
-
 }
 
 
